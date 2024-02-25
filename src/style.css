@@ -25,3 +25,8 @@ input {
   overflow-x: hidden;
   overflow-y: scroll;
 }
+
+.scroll-x {
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
