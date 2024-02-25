@@ -5,3 +5,12 @@ body {
 .dark {
   background-color: #202020;
 }
+
+button {
+  outline: none;
+  border: none;
+}
+
+input {
+  border: none;
+}
