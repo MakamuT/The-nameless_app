@@ -13,4 +13,10 @@ button {
 
 input {
   border: none;
+  outline: none;
+}
+
+.gray {
+  background-color: #313131;
+  color: rgba(255, 255, 255, 0.527);
 }
