@@ -1,5 +1,6 @@
 body {
   background-color: #0f0f0f;
+  overflow: hidden;
 }
 
 .yt-menu {
@@ -32,4 +33,10 @@ body {
 .yt-search-item {
   padding: 5px 10px;
   cursor: pointer;
+}
+
+.yt-action .bi {
+  margin: 0px 15px;
+  cursor: pointer;
+  color: #ffffffcb;
 }
