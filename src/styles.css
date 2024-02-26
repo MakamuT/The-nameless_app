@@ -1,3 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+* {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+}
+
 body {
   background-color: #0f0f0f;
   overflow: hidden;
@@ -11,10 +17,57 @@ body {
   background: transparent;
 }
 
+.yt-menu:hover {
+  background: rgba(128, 128, 128, 0.4) !important;
+}
+
 .yt-searchbox {
   width: 60%;
   display: flex;
   padding: 5px 10px;
+}
+
+.yt-searchbox input {
+  width: 85%;
+  border-top-left-radius: 999px;
+  border-bottom-left-radius: 999px;
+  padding: 5px 10px;
+  outline: 1px solid rgba(177, 177, 177, 0.252);
+}
+
+.yt-searchbox input:focus {
+  outline: 1px solid rgba(0, 128, 255, 0.61);
+}
+
+.yt-searchbox span {
+  border-top-right-radius: 999px;
+  border-bottom-right-radius: 999px;
+  width: 60px;
+  background-color: rgba(87, 87, 87, 0.489);
+  border: 1px solid rgba(87, 87, 87, 0.489);
+  padding: 6px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.yt-searchbox span:hover {
+  background-color: rgb(127, 127, 127);
+}
+
+.yt-searchbox:hover > .yt-search-dropdown {
+  display: block !important;
+}
+
+.yt-action .bi {
+  margin: 0px 15px;
+  cursor: pointer;
+  color: #ffffffcb;
+}
+
+.yt-action .bi:hover {
+  color: red !important;
 }
 
 .yt-search-dropdown {
@@ -35,10 +88,12 @@ body {
   cursor: pointer;
 }
 
-.yt-action .bi {
-  margin: 0px 15px;
-  cursor: pointer;
-  color: #ffffffcb;
+.yt-search-item:hover {
+  background: rgba(128, 128, 128, 0.302);
+}
+
+.yt-search-item a {
+  text-decoration: none;
 }
 
 .yt-sidebar {
@@ -56,6 +111,7 @@ body {
   cursor: pointer;
   border-radius: 10px;
 }
+
 .yt-sidebar nav:hover {
   color: #fff;
   background: #ffffff14;
@@ -76,4 +132,28 @@ body {
   width: 85%;
   overflow-y: scroll;
   padding: 20px;
+}
+
+.card {
+  cursor: pointer;
+}
+
+.card video {
+  display: none;
+}
+
+.card:hover {
+  border-radius: 0px !important;
+}
+
+.card:hover > video {
+  display: block !important;
+}
+
+.card:hover > .img {
+  display: none !important;
+}
+
+a {
+  text-decoration: none;
 }
