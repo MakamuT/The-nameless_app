@@ -28,3 +28,8 @@ body {
   left: 20px;
   display: none;
 }
+
+.yt-search-item {
+  padding: 5px 10px;
+  cursor: pointer;
+}
