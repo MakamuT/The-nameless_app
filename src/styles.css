@@ -164,6 +164,7 @@ body {
   display: flex;
   flex-grow: 1;
   margin: 0 2rem 0 4rem;
+  color: black;
 }
 
 .search-input {
@@ -225,9 +226,16 @@ body {
   background: transparent;
   border: none;
   outline: none;
-  color: #fff;
+  color: black;
   width: 80%;
-  padding: 0px 10px;
+  padding: 0px 20px;
+}
+
+.search svg:hover {
+  cursor: pointer;
+}
+.voice-search:hover {
+  cursor: pointer;
 }
 
 .bi-search {
@@ -235,6 +243,10 @@ body {
   width: 70px;
   height: 35px;
   padding: 10px;
+  transition: 0.2s;
+}
+.bi-search:hover {
+  background-color: #121111;
 }
 
 .bi-mic-fill {
@@ -244,6 +256,9 @@ body {
   height: 35px;
   padding: 9px;
   margin-left: 10px;
+}
+.bi-mic-fill:hover {
+  background-color: #121111;
 }
 
 .rounded-pill {
