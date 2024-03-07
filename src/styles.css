@@ -269,3 +269,56 @@ body {
 .translate-middle {
   transform: translate(-130%, -20%) !important;
 }
+
+.custom-right .modal-dialog {
+  position: fixed;
+  right: 0;
+  margin-right: 2em;
+  margin-left: auto;
+  width: 320px; /* Adjust the width as per your requirement */
+}
+
+.modal-body button{
+  text-align: start;
+  margin-bottom: 10px;
+  background-color: rgb(124, 124, 124);
+  border: none;
+}
+.modal-body svg {
+  color: white;
+  margin-right: 50px;
+  width: 30px;
+  height: 30px;
+}
+.modal-title{
+  position: relative;
+  top: 6px;
+}
+.modal-subtitle{
+  position: relative;
+  font-size: 13px;
+  top: -10px;
+  color: rgb(80, 79, 79);
+  transition: 0.1s;
+}
+
+.modal-subtitle:hover {
+  cursor: pointer;
+  color: rgb(139, 139, 139);
+  user-select: none;
+}
+.btn-secondary{
+  width: 100%;
+}
+
+.btn:focus,
+.btn.focus {
+    outline: none;
+    box-shadow: none;
+}
+img {
+  user-select: none;
+}
+svg:hover {
+  cursor: pointer;
+}
