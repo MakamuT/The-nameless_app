@@ -234,6 +234,7 @@ body {
 .search svg:hover {
   cursor: pointer;
 }
+
 .voice-search:hover {
   cursor: pointer;
 }
@@ -245,6 +246,7 @@ body {
   padding: 10px;
   transition: 0.2s;
 }
+
 .bi-search:hover {
   background-color: #121111;
 }
@@ -257,6 +259,7 @@ body {
   padding: 9px;
   margin-left: 10px;
 }
+
 .bi-mic-fill:hover {
   background-color: #121111;
 }
@@ -273,28 +276,46 @@ body {
 .custom-right .modal-dialog {
   position: fixed;
   right: 0;
-  margin-right: 2em;
-  margin-left: auto;
-  width: 320px; /* Adjust the width as per your requirement */
+  margin-left: 2em; /* Adjust as needed */
+  margin-right: auto;
+  width: 320px;
+  /* Adjust the width as per your requirement */
 }
 
-.modal-body button{
+.custom-left .modal-dialog {
+  position: fixed;
+  left: 0;
+  margin-right: 2em;
+  margin-left: auto;
+  margin-top: 0px;
+  width: 320px;
+  /* Adjust the width as per your requirement */
+}
+.modal-body{
+  overflow-y: auto !important;
+  overflow-x: hidden ;
+}
+
+.modal-body button {
   text-align: start;
   margin-bottom: 10px;
   background-color: rgb(124, 124, 124);
   border: none;
 }
+
 .modal-body svg {
   color: white;
   margin-right: 50px;
   width: 30px;
   height: 30px;
 }
-.modal-title{
+
+.modal-title {
   position: relative;
   top: 6px;
 }
-.modal-subtitle{
+
+.modal-subtitle {
   position: relative;
   font-size: 13px;
   top: -10px;
@@ -307,18 +328,21 @@ body {
   color: rgb(139, 139, 139);
   user-select: none;
 }
-.btn-secondary{
+
+.btn-secondary {
   width: 100%;
 }
 
 .btn:focus,
 .btn.focus {
-    outline: none;
-    box-shadow: none;
+  outline: none;
+  box-shadow: none;
 }
+
 img {
   user-select: none;
 }
+
 svg:hover {
   cursor: pointer;
 }
