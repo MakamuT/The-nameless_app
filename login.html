@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>login Account</title>
+    <title>Login Page</title>
     <link rel="stylesheet" href="styles.css" />
     <!-- Font Awesome -->
     <link
@@ -74,11 +74,14 @@
         width: 100px;
         transition: 0.2s;
       }
+      .siteLogo:hover{
+        cursor: pointer;
+      }
     </style>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
-      <a>
+      <a href="guest-index.html">
         <img class="siteLogo" src="images/nameless-logo-sized.png" />
       </a>
     </nav>
@@ -87,12 +90,12 @@
         <h2 class="text-center mb-4">Login</h2>
         <form>
           <div class="form-group">
-            <label for="username">Username</label>
+            <label for="email">Email</label>
             <input
-              type="text"
-              id="username"
+              type="email"
+              id="email"
               class="form-control"
-              placeholder="Enter your username"
+              placeholder="Enter your email"
               required
             />
           </div>
@@ -106,8 +109,8 @@
               required
             />
           </div>
-          <button type="submit" class="btn btn-primary sign-up-btn">
-            login Account
+          <button class="btn btn-primary sign-up-btn" id="submitBtn" >
+            Login
           </button>
         </form>
         <a href="register.html" class="account">
@@ -139,6 +142,6 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
-    <script src="src/script.js"></script>
+    <script src="index.js"></script>
   </body>
 </html>
