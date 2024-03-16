@@ -20,6 +20,7 @@
 let recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition)();
 recognition.lang = 'en-US'; // Set recognition language to English
 let isRecognizing = false;
+let searchInput = document.getElementById('searchInput')
 
 document.getElementById('voiceDetection').addEventListener('click', function() {
     if (!isRecognizing) {
@@ -37,45 +38,20 @@ recognition.onstart = function() {
 
 recognition.onend = function() {
     isRecognizing = false;
+    voiceSearch.classList.toggle("voiceOn")
 };
+
+recognition.onresult = function(event) {
+    const transcript = event.results[0][0].transcript;
+    searchInput.placeholder = transcript;
+};
+
+if (searchInput.placeholder == transcript){
+    console.log("it is in there")
+}
+
+
+
 
 
 // Profile customization JavaScript
-const uploadContainer = document.getElementById('uploadContainer');
-const fileInput = document.getElementById('fileInput');
-const fileInputLabel = document.getElementById('fileInputLabel');
-const preview = document.getElementById('preview');
-
-uploadContainer.addEventListener('dragover', (e) => {
-    e.preventDefault();
-    uploadContainer.classList.add('dragover');
-});
-
-uploadContainer.addEventListener('dragleave', () => {
-    uploadContainer.classList.remove('dragover');
-});
-
-uploadContainer.addEventListener('drop', (e) => {
-    e.preventDefault();
-    uploadContainer.classList.remove('dragover');
-    const file = e.dataTransfer.files[0];
-    displayImage(file);
-});
-
-fileInput.addEventListener('change', () => {
-    const file = fileInput.files[0];
-    displayImage(file);
-});
-
-function displayImage(file) {
-    const reader = new FileReader();
-
-    reader.onload = function(event) {
-        const img = document.createElement('img');
-        img.src = event.target.result;
-        preview.innerHTML = '';
-        preview.appendChild(img);
-    };
-
-    reader.readAsDataURL(file);
-}
