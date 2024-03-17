@@ -65,10 +65,59 @@ body {
   flex-direction: column;
 }
 
+.voiceOn {
+  animation: pulse 0.5s infinite alternate;
+
+  /* Apply pulsing animation */
+  #voiceSvg {
+    fill: #AA4A44;
+  }
+
+}
+
+.bi-person-fill {
+  color: white;
+  background-color: #222222;
+  border-radius: 15em;
+  padding: 3px;
+  transition: 0.2s;
+}
+
+.bi-person-fill:hover {
+  color: rgb(205, 199, 197);
+  padding: 4px;
+}
+
+
+
+@keyframes pulse {
+  0% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1.2);
+  }
+}
+
+
+
+
+.siteLogo {
+  width: 100px;
+  transition: 0.2s;
+}
+
+.siteLogo:hover {
+  cursor: pointer;
+  transform: scale(1.1, 1.1);
+}
+
 .video-title {
   font-size: 1 0.1rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
   text-decoration: none;
   color: black;
 }
@@ -276,7 +325,8 @@ body {
 .custom-right .modal-dialog {
   position: fixed;
   right: 0;
-  margin-left: 2em; /* Adjust as needed */
+  margin-left: 2em;
+  /* Adjust as needed */
   margin-right: auto;
   width: 320px;
   /* Adjust the width as per your requirement */
@@ -291,9 +341,14 @@ body {
   width: 320px;
   /* Adjust the width as per your requirement */
 }
-.modal-body{
+
+.video-bottom-section {
+  margin-top: 13px;
+}
+
+.modal-body {
   overflow-y: auto !important;
-  overflow-x: hidden ;
+  overflow-x: hidden;
 }
 
 .modal-body button {
