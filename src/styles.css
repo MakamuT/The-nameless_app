@@ -7,6 +7,7 @@
 
 body {
   margin: 0;
+  background-color: #f3ecd9;
 }
 
 .video-section {
@@ -16,6 +17,7 @@ body {
   padding: 3rem 0;
   margin: 0 1.5rem;
   border-top: 4px solid #ccc;
+  background-color: #f3ecd9;
 }
 
 .video-section:first-child {
@@ -70,9 +72,8 @@ body {
 
   /* Apply pulsing animation */
   #voiceSvg {
-    fill: #AA4A44;
+    fill: #aa4a44;
   }
-
 }
 
 .bi-person-fill {
@@ -88,8 +89,6 @@ body {
   padding: 4px;
 }
 
-
-
 @keyframes pulse {
   0% {
     transform: scale(1.1);
@@ -100,8 +99,7 @@ body {
   }
 }
 
-
-.userInfo{
+.userInfo {
   display: flex;
   flex-direction: column;
   margin-top: 20px;
@@ -116,7 +114,7 @@ body {
   border: 1px solid black;
   outline-color: rgba(193, 228, 255, 0.455);
 }
-.userInfo button{
+.userInfo button {
   margin-top: 20px;
   border-radius: 15px;
   outline: none;
@@ -127,9 +125,8 @@ body {
   width: 50%;
   transition: 0.2s;
 }
-.userInfo button:hover{
+.userInfo button:hover {
   background-color: rgba(13, 42, 66, 0.667);
-  
 }
 
 .siteLogo {
