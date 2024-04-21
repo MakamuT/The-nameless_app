@@ -7,7 +7,6 @@
 
 body {
   margin: 0;
-  background-color: #f3ecd9;
 }
 
 .video-section {
@@ -17,7 +16,6 @@ body {
   padding: 3rem 0;
   margin: 0 1.5rem;
   border-top: 4px solid #ccc;
-  background-color: #f3ecd9;
 }
 
 .video-section:first-child {
@@ -183,13 +181,14 @@ body {
 }
 
 .videos {
-  background-color: #f9f9f9;
+  background-color: #f3ecd9;
 }
 
 .categories {
   padding: 1rem 2rem;
   border-top: 1px solid #999;
   border-bottom: 1px solid #999;
+  background-color: #f3ecd9;
 }
 
 .category-section {
