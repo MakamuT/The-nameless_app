@@ -374,6 +374,7 @@ body {
 .modal-body {
   overflow-y: auto !important;
   overflow-x: hidden;
+  background-color: #f3ecd9;
 }
 
 .modal-body button {
@@ -388,6 +389,10 @@ body {
   margin-right: 50px;
   width: 30px;
   height: 30px;
+}
+
+.modal-header {
+  background-color: #dbceac;
 }
 
 .modal-title {
