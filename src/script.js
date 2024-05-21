@@ -1,5 +1,14 @@
   // JavaScript to handle modal positioning
 
+
+
+// Redirect thumbnail click to video page
+const video = document.getElementById("videoTing")
+
+video.addEventListener("click",()=>{
+    window.location="playVideo.html"
+})
+
   $('#exampleModalLong').on('shown.bs.modal', function (e) {
     $('.modal-backdrop').addClass('modal-backdrop-side');
   });
@@ -49,6 +58,7 @@ recognition.onresult = function(event) {
 if (searchInput.placeholder == transcript){
     console.log("it is in there")
 }
+
 
 
 
