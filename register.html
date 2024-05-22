@@ -84,22 +84,31 @@
     <div class="container">
       <div class="sign-up-container">
         <h2 class="text-center mb-4">Sign Up</h2>
-        <form>
           <div class="form-group">
-            <label for="email">Email</label>
+            <label for="enterEmail">Email</label>
             <input
               type="email"
-              id="email"
+              id="enterEmail"
               class="form-control"
               placeholder="Enter your email"
               required
             />
           </div>
           <div class="form-group">
-            <label for="password">Password</label>
+            <label for="enterFirstName">First Name</label>
+            <input
+              type="text"
+              id="enterFirstName"
+              class="form-control"
+              placeholder="Enter your first name"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="enterPassword">Password</label>
             <input
               type="password"
-              id="password"
+              id="enterPassword"
               class="form-control"
               placeholder="Enter your password"
               required
@@ -109,11 +118,10 @@
           <button
             class="btn btn-primary sign-up-btn"
             type="submit"
-            id="submitBtn"
+            id="insert"
           >
             Register Account
           </button>
-        </form>
 
         <a href="login.html" class="account">
           <h6>Already have an account? Login:</h6>
@@ -129,5 +137,78 @@
         </div>
       </div>
     </div>
+    <script src="
+https://cdn.jsdelivr.net/npm/bcrypt@5.1.1/bcrypt.min.js
+"></script>
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+      import {
+        getDatabase,
+        ref,
+        get,
+        set,
+        child,
+        update,
+        remove,
+        runTransaction,
+      } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
+      
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyCtu2sck5t49E4UuzQYua-xCCZLTlxKYCU",
+        authDomain: "nameless-storage.firebaseapp.com",
+        databaseURL:
+        "https://nameless-storage-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "nameless-storage",
+        storageBucket: "nameless-storage.appspot.com",
+      messagingSenderId: "997487656848",
+      appId: "1:997487656848:web:d6dd0647f1cac1d6157d15",
+    };
+    
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase();
+    
+    var enterEmail = document.querySelector("#enterEmail");
+    var enterFirstName = document.querySelector("#enterFirstName");
+    var enterPassword = document.querySelector("#enterPassword");
+    var insertBtn = document.querySelector("#insert");
+
+    function InsertData() {
+      const counterRef = ref(db, 'counter');
+      runTransaction(counterRef, (currentCounter) => {
+        if (currentCounter === null) {
+          return 1;
+        } else {
+          return currentCounter + 1;
+        }
+      }).then((transactionResult) => {
+        const newID = transactionResult.snapshot.val();
+        set(ref(db, "Users/" + newID), {
+          Name: enterFirstName.value,
+          Email: enterEmail.value,
+          Password: enterPassword.value,
+        })
+        .then(() => {
+          // alert("Data added successfully with ID: " + newID);
+          window.location.href = "index.html"; // Redirect to index.html
+        })
+          .catch((error) => {
+            alert(error);
+          });
+        }).catch((error) => {
+          alert("Transaction failed: " + error);
+        });
+      }
+      
+    
+    insertBtn.addEventListener("click", InsertData);
+    insertBtn.addEventListener("click",()=>{
+      console.log("Email",enterEmail.value);
+      console.log("Firstname",enterFirstName.value);
+      console.log("Password",enterPassword.value);
+    })
+    </script>
   </body>
 </html>
