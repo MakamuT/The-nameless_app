@@ -104,7 +104,7 @@
         <h2>Leave a Comment</h2>
         <div class="comment-form">
           
-            <textarea name="comment" id="comment" cols="30" rows="5" placeholder="Write your comment here..." required></textarea>
+            <textarea name="comment" id="enterComment" cols="30" rows="5" placeholder="Write your comment here..." required></textarea>
             
             <br>
             <button id="insert" >Post Comment</button>
@@ -127,24 +127,6 @@
     <script type="module">
       // Import the functions you need from the SDKs you need
       import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
-      // TODO: Add SDKs for Firebase products that you want to use
-      // https://firebase.google.com/docs/web/setup#available-libraries
-
-      // Your web app's Firebase configuration
-      const firebaseConfig = {
-        apiKey: "AIzaSyCtu2sck5t49E4UuzQYua-xCCZLTlxKYCU",
-        authDomain: "nameless-storage.firebaseapp.com",
-        databaseURL:
-          "https://nameless-storage-default-rtdb.europe-west1.firebasedatabase.app",
-        projectId: "nameless-storage",
-        storageBucket: "nameless-storage.appspot.com",
-        messagingSenderId: "997487656848",
-        appId: "1:997487656848:web:d6dd0647f1cac1d6157d15",
-    };
-    
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig)
-    
       import {
         getDatabase,
         ref,
@@ -153,115 +135,56 @@
         child,
         update,
         remove,
+        runTransaction,
       } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
+      
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyCtu2sck5t49E4UuzQYua-xCCZLTlxKYCU",
+        authDomain: "nameless-storage.firebaseapp.com",
+        databaseURL:
+        "https://nameless-storage-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "nameless-storage",
+        storageBucket: "nameless-storage.appspot.com",
+      messagingSenderId: "997487656848",
+      appId: "1:997487656848:web:d6dd0647f1cac1d6157d15",
+    };
+    
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase();
+    
+    var enterComment = document.querySelector("#enterComment");
+    var myComment= document.querySelector("#myComment");
+    var insertBtn = document.querySelector("#insert");
 
-      const db = getDatabase();
-
-      var enterID = document.querySelector("#enterID");
-      var enterName = document.querySelector("#enterName");
-      var enterAge = document.querySelector("#enterAge");
-      var findID = document.querySelector("#findID");
-      var findName = document.querySelector("#findName");
-      var findAge = document.querySelector("#findAge");
-      var comment = document.querySelector("#comment");
-      var myComment = document.querySelector("#myComment");
-
-      var insertBtn = document.querySelector("#insert");
-      var updateBtn = document.querySelector("#update");
-      var removeBtn = document.querySelector("#remove");
-      var findBtn = document.querySelector("#find");
-
-      function InsertData() {
-        set(ref(db, "People/" + enterID.value), {
-          Name: enterName.value,
-          ID: enterID.value,
-          Age: enterAge.value,
+    function InsertData() {
+      const counterRef = ref(db, 'comment id');
+      runTransaction(counterRef, (currentCounter) => {
+        if (currentCounter === null) {
+          return 1;
+        } else {
+          return currentCounter + 1;
+        }
+      }).then((transactionResult) => {
+        const newID = transactionResult.snapshot.val();
+        set(ref(db, "Comments/" + newID), {
+          Comment: enterComment.value,
         })
-          .then(() => {
-            alert("Data added successfully");
-          })
-          .catch((error) => {
-            alert(error);
-          });
-      }
-
-      function InsertComments() {
-        set(ref(db, "Comments/"), {
-          Comment: comment.value,
+        .then(() => {
+          console.log("Comment added successfully");
+          myComment.innerHTML = enterComment.value
         })
-          .then(() => {
-            alert("Data added successfully");
-          })
           .catch((error) => {
             alert(error);
           });
+        }).catch((error) => {
+          alert("Transaction failed: " + error);
+        });
       }
-
-      function FindData() {
-        const dbref = ref(db);
-
-        get(child(dbref, "People/" + findID.value))
-          .then((snapshot) => {
-            if (snapshot.exists()) {
-              findName.innerHTML = "Name: " + snapshot.val().Name;
-              findAge.innerHTML = "Age: " + snapshot.val().Age;
-            } else {
-              alert("No data found");
-            }
-          })
-          .catch((error) => {
-            alert(error);
-          });
-      }
-
-      // show comments
-      function showComments() {
-        const dbref = ref(db);
-
-        get(child(dbref, "Comments/"))
-          .then((snapshot) => {
-            if (snapshot.exists()) {
-              myComment.innerHTML = "Comments: " + snapshot.val().Comment;
-            } else {
-              alert("No data found");
-            }
-          })
-          .catch((error) => {
-            alert(error);
-          });
-      }
-
-      function UpdateData() {
-        update(ref(db, "People/" + enterID.value), {
-          Name: enterName.value,
-          Age: enterAge.value,
-        })
-          .then(() => {
-            alert("Data updated successfully");
-          })
-          .catch((error) => {
-            alert(error);
-          });
-      }
-
-      function RemoveData() {
-        remove(ref(db, "People/" + enterID.value))
-          .then(() => {
-            alert("Data deleted successfully");
-          })
-          .catch((error) => {
-            alert(error);
-          });
-      }
-
-
-      insertBtn.addEventListener("click", InsertData);
-      insertBtn.addEventListener("click", InsertComments);
-      insertBtn.addEventListener("click", showComments);
-
-      updateBtn.addEventListener("click", UpdateData);
-      removeBtn.addEventListener("click", RemoveData);
-      findBtn.addEventListener("click", FindData);
+      
+    
+    insertBtn.addEventListener("click", InsertData);
     </script>
   </body>
 </html>
