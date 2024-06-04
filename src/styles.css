@@ -281,13 +281,8 @@ body {
 }
 
 .navbar {
-<<<<<<< HEAD
-  background: #0f0f0f !important;
-  box-shadow: 0px 0px 10px #fe9b40;
-=======
   background: #dbceac;
   box-shadow: 0px 0px 10px #232323;
->>>>>>> refs/remotes/origin/main
 }
 
 .search {
