@@ -23,6 +23,15 @@
       body {
         background-color: #f8f9fa;
       }
+      .form-group input {
+        background: transparent;
+        border: 1px solid transparent;
+      }
+      .form-group input:hover {
+        background: transparent;
+        border-bottom: 2px solid #70d694;
+      }
+
       .sign-up-container {
         max-width: 400px;
         margin: 0 auto;
@@ -36,6 +45,10 @@
         margin-left: 80px;
         border-radius: 20px;
         width: 40%;
+      }
+      .sign-up-btn:hover {
+        background-color: #b5e3e5;
+        cursor: pointer;
       }
 
       .account {
@@ -161,11 +174,11 @@
         storageBucket: "nameless-storage.appspot.com",
         messagingSenderId: "997487656848",
         appId: "1:997487656848:web:d6dd0647f1cac1d6157d15",
-    };
-    
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig)
-    
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+
       import {
         getDatabase,
         ref,
@@ -175,7 +188,6 @@
         update,
         remove,
       } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
-
 
       const db = getDatabase();
 
