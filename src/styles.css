@@ -461,3 +461,8 @@ svg:hover {
 /* .hidden {
   display: none;
 } */
+
+/* Settings Page */
+.settings-page a {
+  text-decoration: none;
+}
