@@ -305,7 +305,11 @@
                       >Settings
                     </button>
 
-                    <button type="button" class="btn btn-secondary btn-lg">
+                    <button
+                      type="button"
+                      class="btn btn-secondary btn-lg"
+                      onclick="toggleMenu()"
+                    >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"
@@ -322,6 +326,41 @@
                         /></svg
                       >Help Guide
                     </button>
+                    <!----Help Guide toggle menu-->
+                    <div class="help-menu-wrap" id="helpMenu">
+                      <div class="help-menu">
+                        <div class="user-info">
+                          <div class="help-header">
+                            <h3>Help</h3>
+                            <button
+                              type="button"
+                              class="close"
+                              data-dismiss="modal"
+                              aria-label="Close"
+                            >
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                        </div>
+                        <hr />
+                        <a href="#" class="help-menu-link">
+                          <p>Give Feedback</p>
+                        </a>
+                        <a href="#" class="help-menu-link">
+                          <p>Settings & Privacy</p>
+                        </a>
+                        <a href="#" class="help-menu-link">
+                          <p>Help & Support</p>
+                        </a>
+                        <a href="#" class="help-menu-link">
+                          <p>Display & Accessibility</p>
+                          <span>></span>
+                        </a>
+                        <a href="#" class="help-menu-link">
+                          <p>Give Feedback</p>
+                        </a>
+                      </div>
+                    </div>
                   </div>
                   <div class="modal-footer">
                     <svg
