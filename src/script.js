@@ -62,6 +62,6 @@ if (searchInput.placeholder == transcript) {
 let helpMenu = document.getElementById("helpMenu");
 
 function toggleMenu() {
-  helpMenu.classList.toggle("open-menu");
+  helpMenu.classList.toggle("helpMenu");
 }
 // Profile customization JavaScript
