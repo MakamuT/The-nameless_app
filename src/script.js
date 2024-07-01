@@ -58,5 +58,10 @@ recognition.onresult = function (event) {
 if (searchInput.placeholder == transcript) {
   console.log("it is in there");
 }
+// Help Guide Toggle Menu
+let helpMenu = document.getElementById("helpMenu");
 
+function toggleMenu() {
+  helpMenu.classList.toggle("open-menu");
+}
 // Profile customization JavaScript
